@@ -1,0 +1,123 @@
+#Binary Glass from Melt-Quench method (Looped Cooling)
+
+#------------------------System Initialization---------------------------------#
+units           lj
+dimension      	2
+processors      * * *
+boundary        p p p
+atom_style	atomic
+
+variable 	T_start equal 2.0	#Temperature Variables
+variable	T_stop equal 0.05
+variable	T_step equal 0.05
+variable	N_loop equal 39		#Equals (2.0-0.05)/0.05=39
+variable	cool_run equal 5000000	#5000000 steps for 0.05 T_step corresponds to 3.33e-6 cooling_rate
+variable	dt equal 0.003
+ 
+#--------------------------Read data-------------------------------------------#
+
+read_restart    liq2.rest
+change_box	all triclinic
+reset_timestep  0
+
+#--------------------------Potential-------------------------------------------#
+include		pot.mod
+timestep        ${dt}			#dt
+thermo		1000
+
+#---------------------------Initialization-------------------------------------#
+velocity        all create 2.0 4631 dist gaussian
+
+# Save MD configuration
+write_restart	temp.rest
+write_data	temp.*.dat
+
+
+# find energy minimum
+variable	c equal pe
+variable        f equal vol
+variable        g equal density
+variable        h equal temp
+variable        j equal press
+variable	b equal 2
+variable	c_rate equal ${T_step}/(${cool_run}*${dt})
+
+# Compute initial state
+
+fix           3 all npt temp 0.01 0.001 0.15 tri 0.0 0.0 1.5
+run           100
+unfix         3
+
+#Minimization
+fix           4 all box/relax tri 0.0
+min_style     cg
+min_modify    line quadratic
+minimize      1.0e-10 1.0e-10 10000 100000
+unfix         4
+
+print         '$b $h $c $f $g $j ${c_rate}' file out_AB_cooling.dat
+
+#-----------------------------------Loop---------------------------------------#
+# reload MD
+clear
+read_restart    temp.rest
+include		pot.mod
+
+#Cooling loop @{c_rate} 
+variable        d loop ${N_loop}
+label           lcycle
+  variable	a equal (2.0-(($d-1)*${T_step}))
+  variable	b equal (2.0-(($d)*${T_step}))
+  variable	t_step equal ($d-1)*${cool_run} 
+  reset_timestep	${t_step}
+  print		"Loop number = $d; Temperature = $a K to $b K"
+  
+  compute	  peratom_pe all pe/atom
+  dump            mydump all custom 5000000 md.*.lammpstrj id type x y z c_peratom_pe vx vy vz 		
+
+  fix		1 all nvt temp $a $b 0.15 #iso 0.0 0.0 1.5
+  run		${cool_run}
+  unfix		1
+  undump 	 mydump
+  # save MD configuration
+  write_restart	temp.rest
+  write_data	temp.*.dat
+ 
+  
+  #find energy minimum
+  variable	c equal pe
+  variable	f equal vol
+  variable	g equal density
+  variable      h equal temp
+  variable      j equal press
+  variable	c_rate equal ${T_step}/(${cool_run}*${dt})
+# Compute State
+
+  dump          mydump1 all custom 5000 md_state.*.lammpstrj id type x y z c_peratom_pe vx vy vz 	
+  fix      	3 all npt temp 0.01 0.001 0.15 tri 0.0 0.0 1.5
+  run           10000						#Try different values
+  unfix         3
+  undump	mydump1
+
+  dump          mydump2 all custom 50000 md_min.*.lammpstrj id type x y z c_peratom_pe vx vy vz 
+  fix           4 all box/relax tri 0.0
+  min_style	cg
+  min_modify	line quadratic
+  minimize	1.0e-10 1.0e-10 100000 100000
+  unfix         4
+  undump	mydump2
+
+  print		'$b $h $c $f $g $j ${c_rate}' append out_AB_cooling.dat
+  
+ # reload MD
+  clear
+  read_restart    temp.rest
+  include         pot.mod
+  
+next            d
+jump            in.binary_loop lcycle
+
+write_restart   0_05K.rest
+write_data      0_05K.dat
+
+

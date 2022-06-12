@@ -1,0 +1,4 @@
+Binaries Available
+CPU : lmp_mpi_cpu
+Haswell GPU K40 : lmp_mpi_gpu_k40
+Skylake GPU V100 : lmp_mpi_gpu_v100
