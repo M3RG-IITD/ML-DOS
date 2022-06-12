@@ -1,0 +1,32 @@
+#!/bin/sh
+### Set the job name (for your reference)
+#PBS -N GSage_Multi
+### Set the project name, your department code by default
+#PBS -P krishnan.p2.63
+
+### Request email when job begins and ends
+#PBS -m bea
+### Specify email address to use for notification.
+#PBS -M $USER@iitd.ac.in
+####
+#PBS -l select=1:ncpus=4
+### Specify "wallclock time" required for this job, hhh:mm:ss
+#PBS -l walltime=00:30:00
+
+###-l software=PYTHON
+# After job starts, must goto working directory. 
+# $PBS_O_WORKDIR is the directory from where the job is fired. 
+echo "==============================="
+echo $PBS_JOBID
+cat $PBS_NODEFILE
+echo "==============================="
+cd $PBS_O_WORKDIR
+#job 
+python -u -m src.main --epoch 10 --Val 5 --dataSet NormLJ --learn_method unsup
+qdel $PBS_JOBID
+#NOTE
+# The job line is an example : users need to change it to suit their applications
+# The PBS select statement picks n nodes each having m free processors
+# OpenMPI needs more options such as $PBS_NODEFILE
+
+

@@ -1,0 +1,125 @@
+===============================
+3122330.pbshpc
+khas081.hpc.iitd.ac.in
+===============================
+DEVICE: cpu
+GraphSage with Net Unsupervised Learning
+Evaluation_Metric for graph:15
+
+ROC AUC: 0.8769909139340323
+
+PR Curve Area: 0.8954251720453149
+Evaluation_Metric for graph:16
+
+ROC AUC: 0.8782725180736636
+
+PR Curve Area: 0.8985698947659961
+Evaluation_Metric for graph:17
+
+ROC AUC: 0.8791067741066909
+
+PR Curve Area: 0.8969547557770637
+Evaluation_Metric for graph:18
+
+ROC AUC: 0.8757311015301494
+
+PR Curve Area: 0.8951654676732258
+Evaluation_Metric for graph:19
+
+ROC AUC: 0.8788705468214203
+
+PR Curve Area: 0.8979564506386112
+----------------------EPOCH 0-----------------------
+5 Step [2/2], Loss: 24.8868, Dealed Nodes [500/500] 
+10 Step [2/2], Loss: 21.7391, Dealed Nodes [500/500] 
+15 Step [2/2], Loss: 20.0436, Dealed Nodes [500/500] 
+--------------Validating---------------------
+5 Step [2/2], Loss: 18.8475, Dealed Nodes [500/500] 
+
+ROC AUC: 0.8768680069221229
+
+PR Curve Area: 0.887259427841146
+Evaluation_Metric for graph :15
+
+ROC AUC: 0.8776708277707117
+
+PR Curve Area: 0.8878539299803869
+Evaluation_Metric for graph :16
+
+ROC AUC: 0.8753343757261692
+
+PR Curve Area: 0.8874178262616785
+Evaluation_Metric for graph :17
+
+ROC AUC: 0.8767241312054359
+
+PR Curve Area: 0.8878955539278994
+Evaluation_Metric for graph :18
+
+ROC AUC: 0.873144012320419
+
+PR Curve Area: 0.8847279418123851
+Evaluation_Metric for graph :19
+----------------------EPOCH 1-----------------------
+5 Step [2/2], Loss: 18.9630, Dealed Nodes [500/500] 
+10 Step [2/2], Loss: 18.9232, Dealed Nodes [500/500] 
+15 Step [2/2], Loss: 17.7254, Dealed Nodes [500/500] 
+----------------------EPOCH 2-----------------------
+5 Step [2/2], Loss: 16.6733, Dealed Nodes [500/500] 
+10 Step [2/2], Loss: 17.4891, Dealed Nodes [500/500] 
+15 Step [2/2], Loss: 16.7227, Dealed Nodes [500/500] 
+----------------------EPOCH 3-----------------------
+5 Step [2/2], Loss: 15.1536, Dealed Nodes [500/500] 
+10 Step [2/2], Loss: 17.0204, Dealed Nodes [500/500] 
+15 Step [2/2], Loss: 17.9023, Dealed Nodes [500/500] 
+----------------------EPOCH 4-----------------------
+5 Step [2/2], Loss: 17.1763, Dealed Nodes [500/500] 
+10 Step [2/2], Loss: 17.5455, Dealed Nodes [500/500] 
+15 Step [2/2], Loss: 17.4583, Dealed Nodes [500/500] 
+----------------------EPOCH 5-----------------------
+5 Step [2/2], Loss: 16.8145, Dealed Nodes [500/500] 
+10 Step [2/2], Loss: 16.6604, Dealed Nodes [500/500] 
+15 Step [2/2], Loss: 16.4436, Dealed Nodes [500/500] 
+--------------Validating---------------------
+5 Step [2/2], Loss: 15.2013, Dealed Nodes [500/500] 
+
+ROC AUC: 0.9023067306444976
+
+PR Curve Area: 0.9127416831694078
+Evaluation_Metric for graph :15
+
+ROC AUC: 0.9048691695618192
+
+PR Curve Area: 0.9153669815402401
+Evaluation_Metric for graph :16
+
+ROC AUC: 0.9052504143601483
+
+PR Curve Area: 0.9149864619433996
+Evaluation_Metric for graph :17
+
+ROC AUC: 0.9017227208891216
+
+PR Curve Area: 0.9134771122331213
+Evaluation_Metric for graph :18
+
+ROC AUC: 0.9002140413048898
+
+PR Curve Area: 0.9108704622090049
+Evaluation_Metric for graph :19
+----------------------EPOCH 6-----------------------
+5 Step [2/2], Loss: 15.3093, Dealed Nodes [500/500] 
+10 Step [2/2], Loss: 16.0756, Dealed Nodes [500/500] 
+15 Step [2/2], Loss: 16.6633, Dealed Nodes [500/500] 
+----------------------EPOCH 7-----------------------
+5 Step [2/2], Loss: 15.6482, Dealed Nodes [500/500] 
+10 Step [2/2], Loss: 17.4260, Dealed Nodes [500/500] 
+15 Step [2/2], Loss: 17.1101, Dealed Nodes [500/500] 
+----------------------EPOCH 8-----------------------
+5 Step [2/2], Loss: 16.5671, Dealed Nodes [500/500] 
+10 Step [2/2], Loss: 17.3585, Dealed Nodes [500/500] 
+15 Step [2/2], Loss: 16.1913, Dealed Nodes [500/500] 
+----------------------EPOCH 9-----------------------
+5 Step [2/2], Loss: 16.0765, Dealed Nodes [500/500] 
+10 Step [2/2], Loss: 16.6515, Dealed Nodes [500/500] 
+15 Step [2/2], Loss: 15.8021, Dealed Nodes [500/500] 
