@@ -90,7 +90,7 @@ The user can specify a learning method by --learn_method, 'sup' is for supervise
 
 **Example Usage**
 
-To run the unsupervised model on Cuda:
+To run the unsupervised model :
 ```
 python -u -m src.main --epoch 50 --Val 5 --dataSet NormLJ --learn_method unsup
 ```
