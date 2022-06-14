@@ -9,8 +9,7 @@ Implementation of unsupervised GNN (GraphSAGE) to generate node representations 
 	-Sayan Ranu∗,Department of Computer Science and Engineering,Indian Institute of Technology Delhi, Hauz Khas, New Delhi, India 110016 and,Yardi School of Artificial Intelligence, Indian Institute of Technology Delhi, Hauz Khas, New Delhi, India 110016
 	-N. M. Anoop Krishnan†, Department of Civil Engineering, Indian Institute of Technology Delhi, Hauz Khas, New Delhi, India 110016 and, Yardi School of Artificial Intelligence, Indian Institute of Technology Delhi, Hauz Khas, New Delhi, India 110016
 
-The code for GraphSAGE GNN is a modified version of the original code by Tianwen Jiang (tjiang2@nd.edu), Tong Zhao (tzhao2@nd.edu), Daheng Wang (dwang8@nd.edu).
-(https://github.com/twjiang/graphSAGE-pytorch)
+The code for GraphSAGE GNN is a modified version of the code at (https://github.com/twjiang/graphSAGE-pytorch)
 
 # Contents
 
